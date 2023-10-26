@@ -27,7 +27,7 @@ namespace ThreeCee
         //MeasureItem event handler for your ListBox
         private void listBox1_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            if (e.Index == 1) e.ItemHeight = 50;//Set the Height of the item at index 2 to 50
+            
 
         }
 
