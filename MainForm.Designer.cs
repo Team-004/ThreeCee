@@ -46,6 +46,7 @@
             this.lblFunctionFuelStatus = new System.Windows.Forms.Label();
             this.lblModel = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.gitHubRepositoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -99,6 +100,8 @@
             // 
             // hilfeToolStripMenuItem
             // 
+            this.hilfeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gitHubRepositoryToolStripMenuItem});
             this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
             this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.hilfeToolStripMenuItem.Text = "Hilfe";
@@ -229,6 +232,13 @@
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Vehicle name";
             // 
+            // gitHubRepositoryToolStripMenuItem
+            // 
+            this.gitHubRepositoryToolStripMenuItem.Name = "gitHubRepositoryToolStripMenuItem";
+            this.gitHubRepositoryToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.gitHubRepositoryToolStripMenuItem.Text = "GitHub Repository";
+            this.gitHubRepositoryToolStripMenuItem.Click += new System.EventHandler(this.gitHubRepositoryToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -276,6 +286,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblModel;
         private System.Windows.Forms.Label lblFunctionFuelStatus;
+        private System.Windows.Forms.ToolStripMenuItem gitHubRepositoryToolStripMenuItem;
     }
 }
 

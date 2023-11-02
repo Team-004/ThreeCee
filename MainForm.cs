@@ -70,5 +70,11 @@ namespace ThreeCee
             selectedVehicleIndex = VehicleListBox.SelectedIndex;
             UpdateVehicleInfo();
         }
+
+        private void gitHubRepositoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string target = "https://github.com/leysont/ThreeCee";
+            System.Diagnostics.Process.Start(target);
+        }
     }
 }
