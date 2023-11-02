@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -23,13 +24,6 @@ namespace ThreeCee
             Application.Exit();
         }
 
-        //First add some items to your listBox1.Items     
-        //MeasureItem event handler for your ListBox
-        private void listBox1_MeasureItem(object sender, MeasureItemEventArgs e)
-        {
-
-        }
-
         //DrawItem event handler for your ListBox
         void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -39,13 +33,21 @@ namespace ThreeCee
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-
+            //add new vehicle here (new screen)
+            Debug.WriteLine("Add new vehicle!");
         }
 
         private void gitHubRepositoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //opens github repo (Help > GitHub Repository)
             string target = "https://github.com/leysont/ThreeCee";
             System.Diagnostics.Process.Start(target);
+        }
+
+        private void addVehicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //reroutes click on menu 'Add Vehicle' to actual function
+            toolStripButton1_Click(sender, e);
         }
     }
 }
