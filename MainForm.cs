@@ -36,5 +36,10 @@ namespace ThreeCee
             e.DrawBackground();
             e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
