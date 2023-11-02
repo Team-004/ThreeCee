@@ -13,7 +13,14 @@ namespace ThreeCee
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            PopulateVehicleList();
+        }
 
+        private void PopulateVehicleList()
+        {
+            var list = Vehicle.GetDummyVehicles();
+
+            list.ForEach(it => VehicleListBox.Items.Add($"{it.Name}, {it.Model}"));
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e) => ExitApp();
@@ -25,17 +32,17 @@ namespace ThreeCee
 
         //First add some items to your listBox1.Items     
         //MeasureItem event handler for your ListBox
-        private void listBox1_MeasureItem(object sender, MeasureItemEventArgs e)
+        private void VehicleListBox_MeasureItem(object sender, MeasureItemEventArgs e)
         {
             
 
         }
 
         //DrawItem event handler for your ListBox
-        void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        void VehicleListBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
-            e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+            e.Graphics.DrawString(VehicleListBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
         }
     }
 }
