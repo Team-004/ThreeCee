@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +7,9 @@ namespace ThreeCee
 {
     public partial class MainForm : Form
     {
+        private List<Vehicle> Vehicles;
+        private int selectedVehicleIndex;
+
         public MainForm()
         {
             InitializeComponent();
@@ -13,14 +17,26 @@ namespace ThreeCee
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            PopulateVehicleList();
+            Vehicles = Vehicle.GetDummyVehicles();
+            selectedVehicleIndex = 0;
+            PopulateVehicleList(Vehicles);
+            UpdateVehicleInfo();
         }
 
-        private void PopulateVehicleList()
+        private void PopulateVehicleList(List<Vehicle> list)
         {
-            var list = Vehicle.GetDummyVehicles();
-
             list.ForEach(it => VehicleListBox.Items.Add($"{it.Name}, {it.Model}"));
+        }
+
+        private void UpdateVehicleInfo()
+        {
+            var vehicle = Vehicles[selectedVehicleIndex];
+
+            lblName.Text = vehicle.Name;
+            lblModel.Text = vehicle.Model;
+            lblFunctionFuelStatus.Text = $"{vehicle.Function}\n" +
+                                         $"{vehicle.FuelTypeString()}\n" +
+                                         $"{vehicle.StatusString()}";
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e) => ExitApp();
@@ -34,7 +50,6 @@ namespace ThreeCee
         //MeasureItem event handler for your ListBox
         private void VehicleListBox_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            
 
         }
 
@@ -43,6 +58,17 @@ namespace ThreeCee
         {
             e.DrawBackground();
             e.Graphics.DrawString(VehicleListBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VehicleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedVehicleIndex = VehicleListBox.SelectedIndex;
+            UpdateVehicleInfo();
         }
     }
 }

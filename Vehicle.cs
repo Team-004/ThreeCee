@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ThreeCee
 {
@@ -17,6 +18,19 @@ namespace ThreeCee
             Diesel,
             Electric
         }
+
+        public string FuelTypeString() => FuelType switch {
+            EFuelType.Gasoline => "Benzin", 
+            EFuelType.Diesel => "Diesel",
+            EFuelType.Electric => "Elektrisch",
+            _ => throw new ArgumentOutOfRangeException(nameof(FuelType), FuelType, null)
+        };
+
+        public string StatusString() => Status switch {
+            EStatus.Bought => "gekauft",
+            EStatus.Leased => "geleast",
+            _ => throw new ArgumentOutOfRangeException(nameof(Status), Status, null)
+        };
 
         public enum EStatus
         {

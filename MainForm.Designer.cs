@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MenuMain = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,9 +43,13 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblModel = new System.Windows.Forms.Label();
+            this.lblFunctionFuelStatus = new System.Windows.Forms.Label();
             this.MenuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -107,6 +110,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblFunctionFuelStatus);
+            this.splitContainer1.Panel2.Controls.Add(this.lblModel);
+            this.splitContainer1.Panel2.Controls.Add(this.lblName);
             this.splitContainer1.Size = new System.Drawing.Size(800, 426);
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 1;
@@ -139,6 +148,7 @@
             this.VehicleListBox.TabIndex = 0;
             this.VehicleListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.VehicleListBox_DrawItem);
             this.VehicleListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.VehicleListBox_MeasureItem);
+            this.VehicleListBox.SelectedIndexChanged += new System.EventHandler(this.VehicleListBox_SelectedIndexChanged);
             // 
             // toolStrip1
             // 
@@ -173,11 +183,39 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(23, 28);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(121, 22);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Vehicle name";
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModel.Location = new System.Drawing.Point(23, 60);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(117, 22);
+            this.lblModel.TabIndex = 1;
+            this.lblModel.Text = "Vehicle model";
+            // 
+            // lblFunctionFuelStatus
+            // 
+            this.lblFunctionFuelStatus.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFunctionFuelStatus.Location = new System.Drawing.Point(190, 28);
+            this.lblFunctionFuelStatus.Name = "lblFunctionFuelStatus";
+            this.lblFunctionFuelStatus.Size = new System.Drawing.Size(121, 66);
+            this.lblFunctionFuelStatus.TabIndex = 2;
+            this.lblFunctionFuelStatus.Text = "Funktion\r\nKraftstoff\r\nStatus";
             // 
             // MainForm
             // 
@@ -193,6 +231,8 @@
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -220,6 +260,9 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblModel;
+        private System.Windows.Forms.Label lblFunctionFuelStatus;
     }
 }
 
