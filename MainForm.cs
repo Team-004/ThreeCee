@@ -41,5 +41,11 @@ namespace ThreeCee
         {
 
         }
+
+        private void gitHubRepositoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string target = "https://github.com/leysont/ThreeCee";
+            System.Diagnostics.Process.Start(target);
+        }
     }
 }
