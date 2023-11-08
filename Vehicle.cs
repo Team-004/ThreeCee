@@ -43,14 +43,26 @@ namespace ThreeCee
         public EStatus Status;
         public EFuelType FuelType;
         public string Function;
+        public float FuelConsumptionLPerKm;
+        public float KilometersDriven;
 
-        public Vehicle(string model, string name, EStatus status, EFuelType fuelType, string function)
+        public Vehicle(
+            string model,
+            string name,
+            EStatus status,
+            EFuelType fuelType,
+            string function,
+            float fuelConsumptionLPerKm,
+            float kilometersDriven
+        )
         {
             Model = model;
             Name = name;
             Status = status;
             FuelType = fuelType;
             Function = function;
+            FuelConsumptionLPerKm = fuelConsumptionLPerKm;
+            KilometersDriven = kilometersDriven;
         }
 
         public static List<Vehicle> GetDummyVehicles() =>
@@ -61,14 +73,18 @@ namespace ThreeCee
                     name: "Lieferwagen 1",
                     status: EStatus.Bought,
                     function: "Lieferung",
-                    fuelType: EFuelType.Gasoline
+                    fuelType: EFuelType.Gasoline,
+                    fuelConsumptionLPerKm: 0.07f,
+                    kilometersDriven: 86000f
                 ),
                 new Vehicle(
                     model: "VW T6 Transporter",
                     name: "Lieferwagen 2",
                     status: EStatus.Leased,
                     function: "Lieferung",
-                    fuelType: EFuelType.Gasoline
+                    fuelType: EFuelType.Gasoline,
+                    fuelConsumptionLPerKm: 0.07f,
+                    kilometersDriven: 55000f
                 )
             };
     }

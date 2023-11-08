@@ -43,9 +43,21 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numEstimatedCosts = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numCentPerLiter = new System.Windows.Forms.NumericUpDown();
+            this.numKilometers = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblModel = new System.Windows.Forms.Label();
-            this.lblFunctionFuelStatus = new System.Windows.Forms.Label();
+            this.lblFunctionStatusKilometers = new System.Windows.Forms.Label();
+            this.lblModelFueltype = new System.Windows.Forms.Label();
             this.MenuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -53,15 +65,15 @@
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCentPerLiter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKilometers)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuMain
             // 
-            this.MenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dateiToolStripMenuItem,
-            this.bearbeitenToolStripMenuItem,
-            this.ansichtToolStripMenuItem,
-            this.hilfeToolStripMenuItem});
+            this.MenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.dateiToolStripMenuItem, this.bearbeitenToolStripMenuItem, this.ansichtToolStripMenuItem, this.hilfeToolStripMenuItem });
             this.MenuMain.Location = new System.Drawing.Point(0, 0);
             this.MenuMain.Name = "MenuMain";
             this.MenuMain.Size = new System.Drawing.Size(800, 24);
@@ -70,8 +82,7 @@
             // 
             // dateiToolStripMenuItem
             // 
-            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.beendenToolStripMenuItem});
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.beendenToolStripMenuItem });
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
@@ -113,9 +124,8 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.lblFunctionFuelStatus);
-            this.splitContainer1.Panel2.Controls.Add(this.lblModel);
-            this.splitContainer1.Panel2.Controls.Add(this.lblName);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 426);
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 1;
@@ -153,11 +163,7 @@
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator2,
-            this.toolStripLabel1,
-            this.toolStripSeparator1,
-            this.toolStripButton1});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripSeparator2, this.toolStripLabel1, this.toolStripSeparator1, this.toolStripButton1 });
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(266, 25);
@@ -171,8 +177,9 @@
             // 
             // toolStripLabel1
             // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(61, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(65, 22);
             this.toolStripLabel1.Text = "Fahrzeuge";
             // 
             // toolStripSeparator1
@@ -182,40 +189,171 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(33, 22);
+            this.toolStripButton1.Text = "Neu";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.numEstimatedCosts);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.numCentPerLiter);
+            this.groupBox2.Controls.Add(this.numKilometers);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(15, 126);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(503, 136);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Spritrechner";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(211, 63);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.Text = "0,07";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(188, 20);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Spritverbrauch (Liter/Km):";
+            // 
+            // numEstimatedCosts
+            // 
+            this.numEstimatedCosts.Enabled = false;
+            this.numEstimatedCosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numEstimatedCosts.Location = new System.Drawing.Point(270, 97);
+            this.numEstimatedCosts.Name = "numEstimatedCosts";
+            this.numEstimatedCosts.Size = new System.Drawing.Size(100, 26);
+            this.numEstimatedCosts.TabIndex = 7;
+            this.numEstimatedCosts.Text = "ergebnis";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(247, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Vorraussichtliche Fahrtkosten (€):";
+            // 
+            // numCentPerLiter
+            // 
+            this.numCentPerLiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCentPerLiter.Location = new System.Drawing.Point(323, 32);
+            this.numCentPerLiter.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numCentPerLiter.Name = "numCentPerLiter";
+            this.numCentPerLiter.Size = new System.Drawing.Size(100, 26);
+            this.numCentPerLiter.TabIndex = 5;
+            this.numCentPerLiter.Value = new decimal(new int[] { 176, 0, 0, 0 });
+            this.numCentPerLiter.ValueChanged += new System.EventHandler(this.numCentPerLiter_ValueChanged);
+            // 
+            // numKilometers
+            // 
+            this.numKilometers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numKilometers.Location = new System.Drawing.Point(98, 32);
+            this.numKilometers.Name = "numKilometers";
+            this.numKilometers.Size = new System.Drawing.Size(100, 26);
+            this.numKilometers.TabIndex = 4;
+            this.numKilometers.ValueChanged += new System.EventHandler(this.numKilometers_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(239, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cent/Liter:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Kilometer:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.lblName);
+            this.groupBox1.Controls.Add(this.lblFunctionStatusKilometers);
+            this.groupBox1.Controls.Add(this.lblModelFueltype);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(15, 14);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(503, 106);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Informationen";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(323, 61);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(167, 30);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Entfernen";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(323, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 30);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Bearbeiten";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(23, 28);
+            this.lblName.Location = new System.Drawing.Point(17, 25);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(121, 22);
+            this.lblName.Size = new System.Drawing.Size(130, 22);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Vehicle name";
+            this.lblName.Text = "Fahrzeugname";
             // 
-            // lblModel
+            // lblFunctionStatusKilometers
             // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModel.Location = new System.Drawing.Point(23, 60);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(117, 22);
-            this.lblModel.TabIndex = 1;
-            this.lblModel.Text = "Vehicle model";
+            this.lblFunctionStatusKilometers.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFunctionStatusKilometers.Location = new System.Drawing.Point(202, 25);
+            this.lblFunctionStatusKilometers.Name = "lblFunctionStatusKilometers";
+            this.lblFunctionStatusKilometers.Size = new System.Drawing.Size(121, 66);
+            this.lblFunctionStatusKilometers.TabIndex = 2;
+            this.lblFunctionStatusKilometers.Text = "Funktion\r\nStatus\r\nKilometer";
             // 
-            // lblFunctionFuelStatus
+            // lblModelFueltype
             // 
-            this.lblFunctionFuelStatus.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFunctionFuelStatus.Location = new System.Drawing.Point(190, 28);
-            this.lblFunctionFuelStatus.Name = "lblFunctionFuelStatus";
-            this.lblFunctionFuelStatus.Size = new System.Drawing.Size(121, 66);
-            this.lblFunctionFuelStatus.TabIndex = 2;
-            this.lblFunctionFuelStatus.Text = "Funktion\r\nKraftstoff\r\nStatus";
+            this.lblModelFueltype.Font = new System.Drawing.Font("Maven Pro", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelFueltype.Location = new System.Drawing.Point(17, 47);
+            this.lblModelFueltype.Name = "lblModelFueltype";
+            this.lblModelFueltype.Size = new System.Drawing.Size(150, 44);
+            this.lblModelFueltype.TabIndex = 1;
+            this.lblModelFueltype.Text = "Fahrzeugmodell\r\nKraftstoff";
             // 
             // MainForm
             // 
@@ -232,16 +370,20 @@
             this.MenuMain.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCentPerLiter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKilometers)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -261,8 +403,20 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblModel;
-        private System.Windows.Forms.Label lblFunctionFuelStatus;
+        private System.Windows.Forms.Label lblModelFueltype;
+        private System.Windows.Forms.Label lblFunctionStatusKilometers;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numCentPerLiter;
+        private System.Windows.Forms.NumericUpDown numKilometers;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox numEstimatedCosts;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

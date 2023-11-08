@@ -21,6 +21,7 @@ namespace ThreeCee
             selectedVehicleIndex = 0;
             PopulateVehicleList(Vehicles);
             UpdateVehicleInfo();
+            UpdateCostEstimation();
         }
 
         private void PopulateVehicleList(List<Vehicle> list)
@@ -33,10 +34,41 @@ namespace ThreeCee
             var vehicle = Vehicles[selectedVehicleIndex];
 
             lblName.Text = vehicle.Name;
-            lblModel.Text = vehicle.Model;
-            lblFunctionFuelStatus.Text = $"{vehicle.Function}\n" +
-                                         $"{vehicle.FuelTypeString()}\n" +
-                                         $"{vehicle.StatusString()}";
+            lblModelFueltype.Text = $"{vehicle.Model}\n" +
+                                       $"{vehicle.FuelTypeString()}";
+            lblFunctionStatusKilometers.Text = $"{vehicle.Function}\n" +
+                                            $"{vehicle.StatusString()}\n" +
+                                            $"{vehicle.KilometersDriven.ToString("#,#")} km";
+        }
+
+        private string KilometersToString(float km)
+        {
+            var result = "";
+            var kms = km.ToString().ToCharArray();
+            var counter = 0;
+            foreach (var c in kms)
+            {
+                if (counter < 3)
+                {
+                    result += c;
+                    counter++;
+                }
+                else
+                {
+                    counter = 0;
+                    result += ",";
+                }
+
+            }
+
+            return result;
+        }
+
+        private void UpdateCostEstimation()
+        {
+            numEstimatedCosts.Text = (((float)numCentPerLiter.Value *
+                                       Vehicles[selectedVehicleIndex].FuelConsumptionLPerKm *
+                                       (float)numKilometers.Value)/100).ToString();
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e) => ExitApp();
@@ -69,6 +101,16 @@ namespace ThreeCee
         {
             selectedVehicleIndex = VehicleListBox.SelectedIndex;
             UpdateVehicleInfo();
+        }
+
+        private void numKilometers_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateCostEstimation();
+        }
+
+        private void numCentPerLiter_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateCostEstimation();
         }
     }
 }
