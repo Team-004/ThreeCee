@@ -1,17 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace ThreeCee
+namespace ThreeCee.Models
 {
     internal class Vehicle
     {
-        // Modell,
-        // Kraftstoff,
-        // geleast oder gekauft,
-        // interne Bezeichnung,
-        // Funktion
-        // Bsp.: Volkswagen T6 Transporter, Diesel, geleast von [Leasing-Unternehmen], Lieferung
-
         public enum EFuelType
         {
             Gasoline, // Benzin
@@ -46,6 +39,7 @@ namespace ThreeCee
         public float FuelConsumptionLPerKm;
         public float KilometersDriven;
 
+        // Bsp.: Volkswagen T6 Transporter, Diesel, geleast von [Leasing-Unternehmen], Lieferung
         public Vehicle(
             string model,
             string name,

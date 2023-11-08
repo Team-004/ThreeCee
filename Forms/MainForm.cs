@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using ThreeCee.Models;
 
-namespace ThreeCee
+namespace ThreeCee.Forms
 {
     public partial class MainForm : Form
     {

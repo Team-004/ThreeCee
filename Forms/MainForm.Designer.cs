@@ -1,4 +1,4 @@
-﻿namespace ThreeCee
+﻿namespace ThreeCee.Forms
 {
     partial class MainForm
     {
