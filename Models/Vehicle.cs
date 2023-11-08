@@ -31,16 +31,16 @@ namespace ThreeCee.Models
             Leased, // geleast
         }
 
-        public string Model;
-        public string Name;
+        public readonly string Model;
+        public readonly string Name;
         public EStatus Status;
         public EFuelType FuelType;
-        public string Function;
-        public float FuelConsumptionLPerKm;
-        public float KilometersDriven;
+        public readonly string Function;
+        public readonly float FuelConsumptionLPerKm;
+        public readonly float KilometersDriven;
 
         // Bsp.: Volkswagen T6 Transporter, Diesel, geleast von [Leasing-Unternehmen], Lieferung
-        public Vehicle(
+        private Vehicle(
             string model,
             string name,
             EStatus status,

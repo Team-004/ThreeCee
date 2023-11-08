@@ -8,8 +8,8 @@ namespace ThreeCee.Forms
 {
     public partial class MainForm : Form
     {
-        private List<Vehicle> Vehicles;
-        private int selectedVehicleIndex;
+        private List<Vehicle> _vehicles;
+        private int _selectedVehicleIndex;
 
         public MainForm()
         {
@@ -18,9 +18,9 @@ namespace ThreeCee.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Vehicles = Vehicle.GetDummyVehicles();
-            selectedVehicleIndex = 0;
-            PopulateVehicleList(Vehicles);
+            _vehicles = Vehicle.GetDummyVehicles();
+            _selectedVehicleIndex = 0;
+            PopulateVehicleList(_vehicles);
             UpdateVehicleInfo();
             UpdateCostEstimation();
         }
@@ -32,7 +32,7 @@ namespace ThreeCee.Forms
 
         private void UpdateVehicleInfo()
         {
-            var vehicle = Vehicles[selectedVehicleIndex];
+            var vehicle = _vehicles[_selectedVehicleIndex];
 
             lblName.Text = vehicle.Name;
             lblModelFueltype.Text = $"{vehicle.Model}\n" +
@@ -42,33 +42,10 @@ namespace ThreeCee.Forms
                                             $"{vehicle.KilometersDriven.ToString("#,#")} km";
         }
 
-        private string KilometersToString(float km)
-        {
-            var result = "";
-            var kms = km.ToString().ToCharArray();
-            var counter = 0;
-            foreach (var c in kms)
-            {
-                if (counter < 3)
-                {
-                    result += c;
-                    counter++;
-                }
-                else
-                {
-                    counter = 0;
-                    result += ",";
-                }
-
-            }
-
-            return result;
-        }
-
         private void UpdateCostEstimation()
         {
             numEstimatedCosts.Text = (((float)numCentPerLiter.Value *
-                                       Vehicles[selectedVehicleIndex].FuelConsumptionLPerKm *
+                                       _vehicles[_selectedVehicleIndex].FuelConsumptionLPerKm *
                                        (float)numKilometers.Value)/100).ToString();
         }
 
@@ -100,7 +77,7 @@ namespace ThreeCee.Forms
 
         private void VehicleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedVehicleIndex = VehicleListBox.SelectedIndex;
+            _selectedVehicleIndex = VehicleListBox.SelectedIndex;
             UpdateVehicleInfo();
         }
 
