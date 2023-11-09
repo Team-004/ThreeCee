@@ -124,5 +124,11 @@ namespace ThreeCee.Forms
         {
             UpdateCostEstimation();
         }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            AddVehicle addVehicleForm = new(); 
+            addVehicleForm.Show();
+        }
     }
 }
