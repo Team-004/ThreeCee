@@ -1,15 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using ThreeCee.Infrastructure;
 using ThreeCee.Models;
 
 namespace ThreeCee.Forms
 {
     public partial class MainForm : Form
     {
-        private List<Vehicle> _vehicles;
+        private static List<Vehicle> _vehicles;
         private int _selectedVehicleIndex;
+
+        private static readonly IRepository<Vehicle> Repo = new SqliteVehicleRepository(
+            // ReSharper disable once StringLiteralTypo
+            dbName: "Data Source=userdata/vehicles.db;",
+            onUpdate: OnDbUpdate
+        );
+        
+        private static void OnDbUpdate()
+        {
+            _vehicles = Repo.GetAll();
+        }
 
         public MainForm()
         {
@@ -18,12 +31,25 @@ namespace ThreeCee.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _vehicles = Vehicle.GetDummyVehicles();
+            OnDbUpdate();
+            
+            Repo.DeleteAll();
+            
+            AddExampleVehicles();
+
+            //_vehicles = Vehicle.GetDummyVehicles();
             _selectedVehicleIndex = 0;
             PopulateVehicleList(_vehicles);
             UpdateVehicleInfo();
             UpdateCostEstimation();
         }
+        
+        private void AddExampleVehicles()
+        {
+            foreach (var vehicle in Vehicle.GetDummyVehicles()) Repo.Add(vehicle);
+        }
+
+
 
         private void PopulateVehicleList(List<Vehicle> list)
         {
@@ -32,6 +58,10 @@ namespace ThreeCee.Forms
 
         private void UpdateVehicleInfo()
         {
+            if (!_vehicles.Any())
+            {
+                return;
+            }
             var vehicle = _vehicles[_selectedVehicleIndex];
 
             lblName.Text = vehicle.Name;
@@ -44,6 +74,10 @@ namespace ThreeCee.Forms
 
         private void UpdateCostEstimation()
         {
+            if (!_vehicles.Any())
+            {
+                return;
+            }
             numEstimatedCosts.Text = (((float)numCentPerLiter.Value *
                                        _vehicles[_selectedVehicleIndex].FuelConsumptionLPerKm *
                                        (float)numKilometers.Value)/100).ToString();
