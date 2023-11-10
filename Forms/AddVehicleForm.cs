@@ -28,17 +28,29 @@ namespace ThreeCee.Forms
 
         private void addVehicleButton_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("Add vehicle Button clicked!");
             string vehicleName = nameTextBox.Text;
             string vehicleModell = modellTextBox.Text;
             string vehicleFunction = functionTextBox.Text;
-            string vehicleFuelType = fuelTypeComboBox.Text;
-            string vehicleStatus = statusComboBox.Text;
-            decimal vehicleKilometers = kilometerNumberBox.Value;
-            //check that all variables arent empty
-            if (vehicleName != "" && vehicleModell != "" && vehicleFunction != "" && vehicleFuelType != "" && vehicleStatus != "")
+            string vehicleFuelTypeText = fuelTypeComboBox.Text;
+            string vehicleStatusText = statusComboBox.Text;
+            float vehicleFuelConsumption = (float)fuelConsumptionNumberBox.Value;
+            float vehicleKilometers = (float)kilometerNumberBox.Value;
+            if (vehicleName != "" && vehicleModell != "" && vehicleFunction != "" && vehicleFuelTypeText != "" && vehicleStatusText != "")
             {
-                MainForm.Repo.Add(new Vehicle());                                                                                                                               ));
+                var vehicleFuelType = vehicleFuelTypeText switch
+                {
+                    "Benzin" => Vehicle.EFuelType.Gasoline,
+                    "Diesel" => Vehicle.EFuelType.Diesel,
+                    "Strom" => Vehicle.EFuelType.Electric,
+                    _ => throw new Exception("Unexpected Error: invalid fuel type"),
+                };
+                var vehicleStatus = vehicleStatusText switch
+                {
+                    "Gekauft" => Vehicle.EStatus.Bought,
+                    "Geleast" => Vehicle.EStatus.Leased,
+                    _ => throw new Exception("Unexpected Error: invalid status"),
+                };
+                MainForm.Repo.Add(new Vehicle(vehicleModell, vehicleName, vehicleStatus, vehicleFuelType, vehicleFunction, vehicleFuelConsumption, vehicleKilometers));                                                                                                                             ));
             }
             else
             {
