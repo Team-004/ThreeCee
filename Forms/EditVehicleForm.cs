@@ -4,11 +4,11 @@ using ThreeCee.Models;
 
 namespace ThreeCee.Forms;
 
-public partial class VehicleEditForm : Form
+public partial class EditVehicleForm : Form
 {
     private Vehicle _vehicle;
 
-    public VehicleEditForm(Vehicle vehicle)
+    public EditVehicleForm(Vehicle vehicle)
     {
         InitializeComponent();
         _vehicle = vehicle;

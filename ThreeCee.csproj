@@ -95,17 +95,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
-    <Compile Include="Forms\VehicleEditForm.cs">
+    <Compile Include="Forms\EditVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\VehicleEditForm.Designer.cs">
-      <DependentUpon>VehicleEditForm.cs</DependentUpon>
+    <Compile Include="Forms\EditVehicleForm.Designer.cs">
+      <DependentUpon>EditVehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddVehicle.cs">
+    <Compile Include="Forms\AddVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddVehicle.Designer.cs">
-      <DependentUpon>AddVehicle.cs</DependentUpon>
+    <Compile Include="Forms\AddVehicleForm.Designer.cs">
+      <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>

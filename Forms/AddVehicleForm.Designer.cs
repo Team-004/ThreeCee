@@ -1,6 +1,6 @@
 ﻿namespace ThreeCee.Forms
 {
-    partial class AddVehicle
+    partial class AddVehicleForm
     {
         /// <summary>
         /// Required designer variable.
@@ -211,7 +211,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameTextBox);
             this.MinimumSize = new System.Drawing.Size(600, 500);
-            this.Name = "AddVehicle";
+            this.Name = "AddVehicleForm";
             this.Text = "Fahrzeug hinzufügen";
             this.Load += new System.EventHandler(this.AddVehicle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kilometerNumberBox)).EndInit();

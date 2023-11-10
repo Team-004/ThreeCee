@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ThreeCee.Forms
 {
-    public partial class AddVehicle : Form
+    public partial class AddVehicleForm : Form
     {
-        public AddVehicle()
+        public AddVehicleForm()
         {
             InitializeComponent();
         }

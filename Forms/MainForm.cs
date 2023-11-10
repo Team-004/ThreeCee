@@ -127,14 +127,12 @@ namespace ThreeCee.Forms
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-            AddVehicle addVehicleForm = new(); 
-            addVehicleForm.Show();
+            new AddVehicleForm().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var edit = new VehicleEditForm(_vehicles[_selectedVehicleIndex]);
-            edit.Show();
+            new EditVehicleForm(_vehicles[_selectedVehicleIndex]).Show();
         }
     }
 }

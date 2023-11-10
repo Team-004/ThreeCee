@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace ThreeCee.Forms;
 
-partial class VehicleEditForm
+partial class EditVehicleForm
 {
     /// <summary>
     /// Required designer variable.
@@ -59,7 +59,7 @@ partial class VehicleEditForm
         this.ClientSize = new System.Drawing.Size(800, 450);
         this.Controls.Add(this.button1);
         this.Controls.Add(this.txtID);
-        this.Name = "VehicleEditForm";
+        this.Name = "EditVehicleForm";
         this.Text = "VehicleEditForm";
         this.Load += new System.EventHandler(this.VehicleEditForm_Load);
         this.ResumeLayout(false);
