@@ -44,7 +44,7 @@ public class Vehicle
     public float KilometersDriven;
 
     // Bsp.: Volkswagen T6 Transporter, Diesel, geleast von [Leasing-Unternehmen], Lieferung
-    private Vehicle(
+    public Vehicle(
         string model,
         string name,
         EStatus status,
