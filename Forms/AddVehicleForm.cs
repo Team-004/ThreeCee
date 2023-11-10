@@ -50,7 +50,7 @@ namespace ThreeCee.Forms
                     "Geleast" => Vehicle.EStatus.Leased,
                     _ => throw new Exception("Unexpected Error: invalid status"),
                 };
-                MainForm.Repo.Add(new Vehicle(vehicleModell, vehicleName, vehicleStatus, vehicleFuelType, vehicleFunction, vehicleFuelConsumption, vehicleKilometers));                                                                                                                             ));
+                MainForm.Repo.Add(new Vehicle(vehicleModell, vehicleName, vehicleStatus, vehicleFuelType, vehicleFunction, vehicleFuelConsumption, vehicleKilometers));
             }
             else
             {
