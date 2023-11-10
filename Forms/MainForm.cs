@@ -130,5 +130,11 @@ namespace ThreeCee.Forms
             AddVehicle addVehicleForm = new(); 
             addVehicleForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var edit = new VehicleEditForm(_vehicles[_selectedVehicleIndex]);
+            edit.Show();
+        }
     }
 }

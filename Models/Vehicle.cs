@@ -35,13 +35,13 @@ public class Vehicle
     }
 
     public int Id;
-    public readonly string Model;
-    public readonly string Name;
+    public string Model;
+    public string Name;
     public EStatus Status;
     public EFuelType FuelType;
-    public readonly string Function;
-    public readonly float FuelConsumptionLPerKm;
-    public readonly float KilometersDriven;
+    public string Function;
+    public float FuelConsumptionLPerKm;
+    public float KilometersDriven;
 
     // Bsp.: Volkswagen T6 Transporter, Diesel, geleast von [Leasing-Unternehmen], Lieferung
     private Vehicle(
