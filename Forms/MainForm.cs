@@ -33,8 +33,8 @@ namespace ThreeCee.Forms
         {
             OnDbUpdate();
             
-            //Repo.DeleteAll();
-            //AddExampleVehicles();
+            Repo.DeleteAll();
+            AddExampleVehicles();
 
             //_vehicles = Vehicle.GetDummyVehicles();
             _selectedVehicleIndex = 0;
@@ -125,13 +125,47 @@ namespace ThreeCee.Forms
 
         private void btnEditVehicle_Click(object sender, EventArgs e)
         {
+            EditVehicle();
+        }
+
+        private void DeleteVehicle()
+        {
+            Repo.Delete(_vehicles[_selectedVehicleIndex].Id);
+            UpdateVehicleList();
+        }
+
+        private void EditVehicle()
+        {
             new EditVehicleForm(_vehicles[_selectedVehicleIndex]).Show();
         }
 
         private void btnDeleteVehicle_Click(object sender, EventArgs e)
         {
-            Repo.Delete(_vehicles[_selectedVehicleIndex].Id);
-            UpdateVehicleList();
+            DeleteVehicle();
+        }
+
+        private void MenuEdit_DropDownOpened(object sender, EventArgs e)
+        {
+            if (!_vehicles.Any())
+            {
+                MenuItemEditDelete.Enabled = false;
+                MenuItemEditEdit.Enabled = false;
+            }
+            else
+            {
+                MenuItemEditDelete.Enabled = true;
+                MenuItemEditEdit.Enabled = true;
+            }
+        }
+
+        private void MenuItemEditDelete_Click(object sender, EventArgs e)
+        {
+            DeleteVehicle();
+        }
+
+        private void MenuItemEditEdit_Click(object sender, EventArgs e)
+        {
+            EditVehicle();
         }
     }
 }

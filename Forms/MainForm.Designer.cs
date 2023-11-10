@@ -33,6 +33,9 @@
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemEditAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemEditDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemEditEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -89,7 +92,7 @@
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 22);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
-            // beendenToolStripMenuItem
+            // MenuItemFileExit
             // 
             this.MenuItemFileExit.Name = "MenuItemFileExit";
             this.MenuItemFileExit.Size = new System.Drawing.Size(120, 22);
@@ -98,9 +101,31 @@
             // 
             // bearbeitenToolStripMenuItem
             // 
+            this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.MenuItemEditAdd, this.MenuItemEditDelete, this.MenuItemEditEdit });
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
             this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 22);
             this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
+            this.bearbeitenToolStripMenuItem.DropDownOpened += new System.EventHandler(this.MenuEdit_DropDownOpened);
+            // 
+            // MenuItemEditAdd
+            // 
+            this.MenuItemEditAdd.Name = "MenuItemEditAdd";
+            this.MenuItemEditAdd.Size = new System.Drawing.Size(181, 22);
+            this.MenuItemEditAdd.Text = "Neues Fahrzeug";
+            // 
+            // MenuItemEditDelete
+            // 
+            this.MenuItemEditDelete.Name = "MenuItemEditDelete";
+            this.MenuItemEditDelete.Size = new System.Drawing.Size(181, 22);
+            this.MenuItemEditDelete.Text = "Fahrzeug entfernen";
+            this.MenuItemEditDelete.Click += new System.EventHandler(this.MenuItemEditDelete_Click);
+            // 
+            // MenuItemEditEdit
+            // 
+            this.MenuItemEditEdit.Name = "MenuItemEditEdit";
+            this.MenuItemEditEdit.Size = new System.Drawing.Size(181, 22);
+            this.MenuItemEditEdit.Text = "Fahrzeug bearbeiten";
+            this.MenuItemEditEdit.Click += new System.EventHandler(this.MenuItemEditEdit_Click);
             // 
             // ansichtToolStripMenuItem
             // 
@@ -358,7 +383,7 @@
             this.lblModelFueltype.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModelFueltype.Location = new System.Drawing.Point(17, 47);
             this.lblModelFueltype.Name = "lblModelFueltype";
-            this.lblModelFueltype.Size = new System.Drawing.Size(150, 44);
+            this.lblModelFueltype.Size = new System.Drawing.Size(179, 44);
             this.lblModelFueltype.TabIndex = 1;
             this.lblModelFueltype.Text = "Fahrzeugmodell\r\nKraftstoff";
             // 
@@ -392,6 +417,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem MenuItemEditAdd;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemEditDelete;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemEditEdit;
 
         #endregion
 
