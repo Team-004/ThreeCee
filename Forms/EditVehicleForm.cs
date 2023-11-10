@@ -25,11 +25,21 @@ public partial class EditVehicleForm : Form
         _vehicle.FuelConsumptionLPerKm = float.Parse(txtFuelPerKm.Text)/100;
         _vehicle.KilometersDriven = float.Parse(txtKilometersDriven.Text);
         MainForm.Repo.Update(_vehicle);
+        Program.mainForm.UpdateVehicleList();
+        Program.mainForm.UpdateVehicleInfo();
+        Close();
     }
 
     private void VehicleEditForm_Load(object sender, EventArgs e)
     {
-        Console.WriteLine(_vehicle.Name);
+        txtModel.Text = _vehicle.Model;
+        txtName.Text = _vehicle.Name;
+        cbStatus.Text = _vehicle.Status.ToString();
+        cbFuelType.Text = _vehicle.FuelType.ToString();
+        txtFunction.Text = _vehicle.Function;
+        txtFuelPerKm.Text = (_vehicle.FuelConsumptionLPerKm*100).ToString();
+        txtKilometersDriven.Text = _vehicle.KilometersDriven.ToString();
+
     }
 
     private void txtModel_TextChanged(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Data.SQLite;
 using ThreeCee.Models;
+using System.Diagnostics;
 
 namespace ThreeCee.Infrastructure;
 
@@ -77,20 +78,24 @@ internal class SqliteVehicleRepository : IRepository<Vehicle>
         using var command = new SQLiteCommand(
             @$"UPDATE {_dbName} 
                     SET Name = @Name,
-                                @Status,
-                                @FuelType,
-                                @Function,
-                                @FuelConsumptionLPerKm,
-                                @KilometersDriven
+                                Model = @Model,
+                                Status = @Status,
+                                FuelType = @FuelType,
+                                Function = @Function,
+                                FuelConsumptionLPerKm = @FuelConsumptionLPerKm,
+                                KilometersDriven = @KilometersDriven
                     WHERE Id = @Id",
             _db.Connection);
         command.Parameters.AddWithValue("@Name", updatedVehicle.Name);
+        command.Parameters.AddWithValue("@Model", updatedVehicle.Model);
         command.Parameters.AddWithValue("@Status", updatedVehicle.Status);
         command.Parameters.AddWithValue("@FuelType", updatedVehicle.FuelType);
         command.Parameters.AddWithValue("@Function", updatedVehicle.Function);
         command.Parameters.AddWithValue("@FuelConsumptionLPerKm", updatedVehicle.FuelConsumptionLPerKm);
         command.Parameters.AddWithValue("@KilometersDriven", updatedVehicle.KilometersDriven);
         command.Parameters.AddWithValue("@Id", updatedVehicle.Id);
+
+        Debug.WriteLine(command.CommandText);
 
         command.ExecuteNonQuery();
         _onUpdate?.Invoke();

@@ -35,12 +35,11 @@ namespace ThreeCee.Forms
             OnDbUpdate();
             
             Repo.DeleteAll();
-            
             AddExampleVehicles();
 
             //_vehicles = Vehicle.GetDummyVehicles();
             _selectedVehicleIndex = 0;
-            PopulateVehicleList(_vehicles);
+            UpdateVehicleList();
             UpdateVehicleInfo();
             UpdateCostEstimation();
         }
@@ -50,14 +49,13 @@ namespace ThreeCee.Forms
             foreach (var vehicle in Vehicle.GetDummyVehicles()) Repo.Add(vehicle);
         }
 
-
-
-        private void PopulateVehicleList(List<Vehicle> list)
+        public void UpdateVehicleList()
         {
-            list.ForEach(it => VehicleListBox.Items.Add($"{it.Name}, {it.Model}"));
+            VehicleListBox.Items.Clear();
+            _vehicles.ForEach(it => VehicleListBox.Items.Add($"{it.Name}, {it.Model}"));
         }
 
-        private void UpdateVehicleInfo()
+        public void UpdateVehicleInfo()
         {
             if (!_vehicles.Any())
             {
@@ -71,9 +69,10 @@ namespace ThreeCee.Forms
             lblFunctionStatusKilometers.Text = $"{vehicle.Function}\n" +
                                             $"{vehicle.StatusString()}\n" +
                                             $"{vehicle.KilometersDriven.ToString("#,#")} km";
+            textBox1.Text=vehicle.FuelConsumptionLPerKm.ToString();
         }
 
-        private void UpdateCostEstimation()
+        public void UpdateCostEstimation()
         {
             if (!_vehicles.Any())
             {
@@ -84,9 +83,9 @@ namespace ThreeCee.Forms
                                        (float)numKilometers.Value)/100).ToString();
         }
 
-        private void beendenToolStripMenuItem_Click(object sender, EventArgs e) => ExitApp();
+        private void MenuItemFileExit_Click(object sender, EventArgs e) => ExitApp();
 
-        private void ExitApp()
+        private static void ExitApp()
         {
             Application.Exit();
         }
@@ -99,15 +98,10 @@ namespace ThreeCee.Forms
         }
 
         //DrawItem event handler for your ListBox
-        void VehicleListBox_DrawItem(object sender, DrawItemEventArgs e)
+        private void VehicleListBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
             e.Graphics.DrawString(VehicleListBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void VehicleListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,14 +120,54 @@ namespace ThreeCee.Forms
             UpdateCostEstimation();
         }
 
-        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        private void toolAdd_Click(object sender, EventArgs e)
         {
             new AddVehicleForm().Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEditVehicle_Click(object sender, EventArgs e)
+        {
+            EditVehicle();
+        }
+
+        private void DeleteVehicle()
+        {
+            Repo.Delete(_vehicles[_selectedVehicleIndex].Id);
+            UpdateVehicleList();
+        }
+
+        private void EditVehicle()
         {
             new EditVehicleForm(_vehicles[_selectedVehicleIndex]).Show();
+        }
+
+        private void btnDeleteVehicle_Click(object sender, EventArgs e)
+        {
+            DeleteVehicle();
+        }
+
+        private void MenuEdit_DropDownOpened(object sender, EventArgs e)
+        {
+            if (!_vehicles.Any())
+            {
+                MenuItemEditDelete.Enabled = false;
+                MenuItemEditEdit.Enabled = false;
+            }
+            else
+            {
+                MenuItemEditDelete.Enabled = true;
+                MenuItemEditEdit.Enabled = true;
+            }
+        }
+
+        private void MenuItemEditDelete_Click(object sender, EventArgs e)
+        {
+            DeleteVehicle();
+        }
+
+        private void MenuItemEditEdit_Click(object sender, EventArgs e)
+        {
+            EditVehicle();
         }
     }
 }
