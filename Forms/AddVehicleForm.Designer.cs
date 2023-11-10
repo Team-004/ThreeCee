@@ -37,10 +37,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.modellTextBox = new System.Windows.Forms.TextBox();
-            this.funktionTextBox = new System.Windows.Forms.TextBox();
+            this.functionTextBox = new System.Windows.Forms.TextBox();
             this.kilometerNumberBox = new System.Windows.Forms.NumericUpDown();
             this.addVehicleButton = new System.Windows.Forms.Button();
-            this.kraftstoffArtComboBox = new System.Windows.Forms.ComboBox();
+            this.fuelTypeComboBox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kilometerNumberBox)).BeginInit();
             this.SuspendLayout();
@@ -139,13 +139,13 @@
             this.modellTextBox.Size = new System.Drawing.Size(162, 26);
             this.modellTextBox.TabIndex = 8;
             // 
-            // funktionTextBox
+            // functionTextBox
             // 
-            this.funktionTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.funktionTextBox.Location = new System.Drawing.Point(404, 248);
-            this.funktionTextBox.Name = "funktionTextBox";
-            this.funktionTextBox.Size = new System.Drawing.Size(162, 26);
-            this.funktionTextBox.TabIndex = 10;
+            this.functionTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.functionTextBox.Location = new System.Drawing.Point(404, 248);
+            this.functionTextBox.Name = "functionTextBox";
+            this.functionTextBox.Size = new System.Drawing.Size(162, 26);
+            this.functionTextBox.TabIndex = 10;
             // 
             // kilometerNumberBox
             // 
@@ -167,21 +167,23 @@
             this.addVehicleButton.UseVisualStyleBackColor = true;
             this.addVehicleButton.Click += new System.EventHandler(this.addVehicleButton_Click);
             // 
-            // kraftstoffArtComboBox
+            // fuelTypeComboBox
             // 
-            this.kraftstoffArtComboBox.FormattingEnabled = true;
-            this.kraftstoffArtComboBox.Items.AddRange(new object[] {
+            this.fuelTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fuelTypeComboBox.FormattingEnabled = true;
+            this.fuelTypeComboBox.Items.AddRange(new object[] {
             "Diesel",
             "Benzin",
             "Gas",
             "Strom"});
-            this.kraftstoffArtComboBox.Location = new System.Drawing.Point(404, 201);
-            this.kraftstoffArtComboBox.Name = "kraftstoffArtComboBox";
-            this.kraftstoffArtComboBox.Size = new System.Drawing.Size(162, 28);
-            this.kraftstoffArtComboBox.TabIndex = 14;
+            this.fuelTypeComboBox.Location = new System.Drawing.Point(404, 201);
+            this.fuelTypeComboBox.Name = "fuelTypeComboBox";
+            this.fuelTypeComboBox.Size = new System.Drawing.Size(162, 28);
+            this.fuelTypeComboBox.TabIndex = 14;
             // 
             // statusComboBox
             // 
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusComboBox.FormattingEnabled = true;
             this.statusComboBox.Items.AddRange(new object[] {
             "Gekauft",
@@ -191,16 +193,16 @@
             this.statusComboBox.Size = new System.Drawing.Size(162, 28);
             this.statusComboBox.TabIndex = 15;
             // 
-            // AddVehicle
+            // AddVehicleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 444);
             this.Controls.Add(this.statusComboBox);
-            this.Controls.Add(this.kraftstoffArtComboBox);
+            this.Controls.Add(this.fuelTypeComboBox);
             this.Controls.Add(this.addVehicleButton);
             this.Controls.Add(this.kilometerNumberBox);
-            this.Controls.Add(this.funktionTextBox);
+            this.Controls.Add(this.functionTextBox);
             this.Controls.Add(this.modellTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -231,10 +233,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox modellTextBox;
-        private System.Windows.Forms.TextBox funktionTextBox;
+        private System.Windows.Forms.TextBox functionTextBox;
         private System.Windows.Forms.NumericUpDown kilometerNumberBox;
         private System.Windows.Forms.Button addVehicleButton;
-        private System.Windows.Forms.ComboBox kraftstoffArtComboBox;
+        private System.Windows.Forms.ComboBox fuelTypeComboBox;
         private System.Windows.Forms.ComboBox statusComboBox;
     }
 }
