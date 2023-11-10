@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using ThreeCee.Infrastructure;
 using ThreeCee.Models;
 
+
 namespace ThreeCee.Forms
 {
     public partial class MainForm : Form
@@ -13,7 +14,7 @@ namespace ThreeCee.Forms
         private static List<Vehicle> _vehicles;
         private int _selectedVehicleIndex;
 
-        private static readonly IRepository<Vehicle> Repo = new SqliteVehicleRepository(
+        public static readonly IRepository<Vehicle> Repo = new SqliteVehicleRepository(
             // ReSharper disable once StringLiteralTypo
             dbName: "Data Source=userdata/vehicles.db;",
             onUpdate: OnDbUpdate
