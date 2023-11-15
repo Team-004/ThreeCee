@@ -63,10 +63,20 @@ internal class SqliteVehicleRepository : IRepository<Vehicle>
         return result;
     }
 
-    public List<Vehicle> GetAll() => _db.GetAllEntries(
-        tableName: _dbName,
-        entryFunc: Vehicle.FromSqliteReader
-    );
+    public List<Vehicle> GetAll()
+    {
+        var list = _db.GetAllEntries(
+            tableName: _dbName,
+            entryFunc: Vehicle.FromSqliteReader
+        );
+        foreach (var vehicle in list)
+        {
+            Console.WriteLine(vehicle);
+        }
+        Console.WriteLine($"got {list.Count} items");
+
+        return list;
+    }
 
     public Vehicle GetById(int id)
     {

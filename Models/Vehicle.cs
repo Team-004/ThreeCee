@@ -4,7 +4,7 @@ using System.Data.SQLite;
 
 namespace ThreeCee.Models;
 
-public class Vehicle
+public record Vehicle
 {
     public enum EFuelType
     {
@@ -127,10 +127,6 @@ public class Vehicle
 
     public static Vehicle FromSqliteReader(SQLiteDataReader reader)
     {
-        for (int i = 1; i < 7; i++)
-        {
-            Console.WriteLine(i + ": " + reader.GetValue(i));
-        }
         return new Vehicle(
             name: reader.GetString(2),
             status: (EStatus)Enum.Parse(typeof(EStatus), reader.GetString(3)),

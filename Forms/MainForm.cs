@@ -51,6 +51,7 @@ namespace ThreeCee.Forms
 
         public void UpdateVehicleList()
         {
+            _vehicles = Repo.GetAll();
             VehicleListBox.Items.Clear();
             _vehicles.ForEach(it => VehicleListBox.Items.Add($"{it.Name}, {it.Model}"));
         }
@@ -168,6 +169,17 @@ namespace ThreeCee.Forms
         private void MenuItemEditEdit_Click(object sender, EventArgs e)
         {
             EditVehicle();
+        }
+
+        private void toolRefresh_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("refreshing...");
+            UpdateVehicleList();
+        }
+
+        private void MenuItemEditAdd_Click(object sender, EventArgs e)
+        {
+            new AddVehicleForm().Show();
         }
     }
 }

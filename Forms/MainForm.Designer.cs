@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MenuMain = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemFileExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,7 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolRefresh = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -112,6 +114,7 @@
             this.MenuItemEditAdd.Name = "MenuItemEditAdd";
             this.MenuItemEditAdd.Size = new System.Drawing.Size(181, 22);
             this.MenuItemEditAdd.Text = "Neues Fahrzeug";
+            this.MenuItemEditAdd.Click += new System.EventHandler(this.MenuItemEditAdd_Click);
             // 
             // MenuItemEditDelete
             // 
@@ -191,7 +194,7 @@
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripSeparator2, this.toolStripLabel1, this.toolStripSeparator1, this.toolAdd });
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripSeparator2, this.toolStripLabel1, this.toolStripSeparator1, this.toolAdd, this.toolRefresh });
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
@@ -223,6 +226,16 @@
             this.toolAdd.Size = new System.Drawing.Size(33, 22);
             this.toolAdd.Text = "Neu";
             this.toolAdd.Click += new System.EventHandler(this.toolAdd_Click);
+            // 
+            // toolRefresh
+            // 
+            this.toolRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolRefresh.Image")));
+            this.toolRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolRefresh.Name = "toolRefresh";
+            this.toolRefresh.Size = new System.Drawing.Size(79, 22);
+            this.toolRefresh.Text = "Aktualisieren";
+            this.toolRefresh.Click += new System.EventHandler(this.toolRefresh_Click);
             // 
             // groupBox2
             // 
@@ -417,6 +430,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripButton toolRefresh;
 
         private System.Windows.Forms.ToolStripMenuItem MenuItemEditAdd;
         private System.Windows.Forms.ToolStripMenuItem MenuItemEditDelete;
