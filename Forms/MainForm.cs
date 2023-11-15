@@ -60,8 +60,20 @@ namespace ThreeCee.Forms
         {
             if (!_vehicles.Any())
             {
+                lblName.Text = "Keine Fahrzeuge vorhanden";
+                lblModelFueltype.Text = "";
+                lblFunctionStatusKilometers.Text = "";
+                textBox1.Text = "";
+                UpdateCostEstimation();
+                btnDeleteVehicle.Enabled = false;
+                btnEditVehicle.Enabled = false;
+                
                 return;
             }
+            UpdateCostEstimation();
+            btnDeleteVehicle.Enabled = true;
+            btnEditVehicle.Enabled = true;
+            
             var vehicle = _vehicles[_selectedVehicleIndex];
 
             lblName.Text = vehicle.Name;
@@ -77,8 +89,14 @@ namespace ThreeCee.Forms
         {
             if (!_vehicles.Any())
             {
+                numEstimatedCosts.Text = "0";
+                numKilometers.Enabled = false;
+                numCentPerLiter.Enabled = false;
                 return;
             }
+            numKilometers.Enabled = true;
+            numCentPerLiter.Enabled = true;
+            
             numEstimatedCosts.Text = (((float)numCentPerLiter.Value *
                                        _vehicles[_selectedVehicleIndex].FuelConsumptionLPerKm *
                                        (float)numKilometers.Value)/100).ToString();
@@ -135,6 +153,7 @@ namespace ThreeCee.Forms
         {
             Repo.Delete(_vehicles[_selectedVehicleIndex].Id);
             UpdateVehicleList();
+            UpdateVehicleInfo();
         }
 
         private void EditVehicle()
