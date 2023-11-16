@@ -33,7 +33,7 @@ namespace ThreeCee.Forms
             string vehicleFunction = functionTextBox.Text;
             string vehicleFuelTypeText = fuelTypeComboBox.Text;
             string vehicleStatusText = statusComboBox.Text;
-            float vehicleFuelConsumption = (float)fuelConsumptionNumberBox.Value;
+            float vehicleFuelConsumption = (float)fuelConsumptionNumberBox.Value/100;
             float vehicleKilometers = (float)kilometerNumberBox.Value;
             if (vehicleName != "" && vehicleModell != "" && vehicleFunction != "" && vehicleFuelTypeText != "" && vehicleStatusText != "")
             {
@@ -60,6 +60,11 @@ namespace ThreeCee.Forms
             {
                 MessageBox.Show("Bitte alle Felder ausfüllen!");
             }
+        }
+
+        private void fuelConsumptionNumberBox_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

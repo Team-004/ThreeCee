@@ -80,8 +80,8 @@ partial class EditVehicleForm
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Bought",
-            "Leased"});
+            "Gekauft",
+            "Geleast"});
             this.cbStatus.Location = new System.Drawing.Point(12, 68);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(100, 24);
@@ -93,9 +93,8 @@ partial class EditVehicleForm
             this.cbFuelType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFuelType.FormattingEnabled = true;
             this.cbFuelType.Items.AddRange(new object[] {
-            "Gasoline",
-            "Diesel",
-            "Electric"});
+            "Benzin",
+            "Diesel"});
             this.cbFuelType.Location = new System.Drawing.Point(12, 98);
             this.cbFuelType.Name = "cbFuelType";
             this.cbFuelType.Size = new System.Drawing.Size(100, 24);

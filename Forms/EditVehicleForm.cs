@@ -19,8 +19,20 @@ public partial class EditVehicleForm : Form
     {
         _vehicle.Model = txtModel.Text;
         _vehicle.Name = txtName.Text;
-        _vehicle.Status = (Vehicle.EStatus)Enum.Parse(typeof(Vehicle.EStatus),cbStatus.Text);
-        _vehicle.FuelType = (Vehicle.EFuelType)Enum.Parse(typeof(Vehicle.EFuelType), cbFuelType.Text);
+        //_vehicle.Status = (Vehicle.EStatus)Enum.Parse(typeof(Vehicle.EStatus),cbStatus.Text);
+        _vehicle.Status = cbStatus.Text switch
+        {
+            "Gekauft" => Vehicle.EStatus.Bought,
+            "Geleast" => Vehicle.EStatus.Leased,
+            _ => throw new NotImplementedException(),
+        };
+        //_vehicle.FuelType = (Vehicle.EFuelType)Enum.Parse(typeof(Vehicle.EFuelType), cbFuelType.Text);
+        _vehicle.FuelType = cbFuelType.Text switch
+        {
+            "Benzin" => Vehicle.EFuelType.Gasoline,
+            "Diesel" => Vehicle.EFuelType.Diesel,
+            _ => throw new NotImplementedException(),
+        };
         _vehicle.Function = txtFunction.Text;
         _vehicle.FuelConsumptionLPerKm = float.Parse(txtFuelPerKm.Text)/100;
         _vehicle.KilometersDriven = float.Parse(txtKilometersDriven.Text);
